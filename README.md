@@ -1,8 +1,8 @@
-[![PkgGoDev](https://pkg.go.dev/badge/github.com/SebastiaanKlippert/go-wkhtmltopdf)](https://pkg.go.dev/github.com/SebastiaanKlippert/go-wkhtmltopdf)
-[![Build Status](https://travis-ci.org/SebastiaanKlippert/go-wkhtmltopdf.svg?branch=master)](https://travis-ci.org/SebastiaanKlippert/go-wkhtmltopdf)
-[![Go Report Card](https://goreportcard.com/badge/SebastiaanKlippert/go-wkhtmltopdf)](https://goreportcard.com/report/SebastiaanKlippert/go-wkhtmltopdf)
+[![PkgGoDev](https://pkg.go.dev/badge/github.com/arturwwl/go-wkhtmltopdf)](https://pkg.go.dev/github.com/arturwwl/go-wkhtmltopdf)
+[![Build Status](https://travis-ci.org/arturwwl/go-wkhtmltopdf.svg?branch=master)](https://travis-ci.org/arturwwl/go-wkhtmltopdf)
+[![Go Report Card](https://goreportcard.com/badge/arturwwl/go-wkhtmltopdf)](https://goreportcard.com/report/arturwwl/go-wkhtmltopdf)
 [![codebeat badge](https://codebeat.co/badges/a6bb7f66-7ae2-4de8-8b61-623ef68096c9)](https://codebeat.co/projects/github-com-sebastiaanklippert-go-wkhtmltopdf-master)
-[![codecov](https://codecov.io/gh/SebastiaanKlippert/go-wkhtmltopdf/branch/master/graph/badge.svg)](https://codecov.io/gh/SebastiaanKlippert/go-wkhtmltopdf)
+[![codecov](https://codecov.io/gh/arturwwl/go-wkhtmltopdf/branch/master/graph/badge.svg)](https://codecov.io/gh/arturwwl/go-wkhtmltopdf)
 
 # go-wkhtmltopdf
 Golang commandline wrapper for wkhtmltopdf
@@ -33,7 +33,7 @@ which contains the PDF output and you can feed one input document from an io.Rea
 You can combine any number of external HTML documents (HTTP(S) links) with at most one HTML document from stdin and set 
 options for each input document.
 
-Note: You can also ignore the internal buffer and let wkhtmltopdf write directly to disk if required for large files, or use the [SetOutput](https://godoc.org/github.com/SebastiaanKlippert/go-wkhtmltopdf#PDFGenerator.SetOutput) method to pass any `io.Writer`.
+Note: You can also ignore the internal buffer and let wkhtmltopdf write directly to disk if required for large files, or use the [SetOutput](https://godoc.org/github.com/arturwwl/go-wkhtmltopdf#PDFGenerator.SetOutput) method to pass any `io.Writer`.
 
 For us this is one of the easiest ways to generate PDF documents from Go(lang) and performance is very acceptable.
 
@@ -41,7 +41,7 @@ For us this is one of the easiest ways to generate PDF documents from Go(lang) a
 go get or use a Go dependency manager of your liking.
 
 ```
-go get -u github.com/SebastiaanKlippert/go-wkhtmltopdf
+go get -u github.com/arturwwl/go-wkhtmltopdf
 ```
 
 go-wkhtmltopdf finds the path to wkhtmltopdf by
@@ -76,7 +76,7 @@ func ExampleNewPDFGenerator() {
   pdfg.Grayscale.Set(true)
 
   // Create a new input page from an URL
-  page := NewPage("https://godoc.org/github.com/SebastiaanKlippert/go-wkhtmltopdf")
+  page := NewPage("https://godoc.org/github.com/arturwwl/go-wkhtmltopdf")
 
   // Set options for this page
   page.FooterRight.Set("[page]")
@@ -103,7 +103,7 @@ func ExampleNewPDFGenerator() {
 }
 ```
 
-As mentioned before, you can provide one document from stdin, this is done by using a [PageReader](https://godoc.org/github.com/SebastiaanKlippert/go-wkhtmltopdf#PageReader "GoDoc") object as input to AddPage. This is best constructed with  [NewPageReader](https://godoc.org/github.com/SebastiaanKlippert/go-wkhtmltopdf#NewPageReader "GoDoc") and will accept any io.Reader so this can be used with files from disk (os.File) or memory (bytes.Buffer) etc.  
+As mentioned before, you can provide one document from stdin, this is done by using a [PageReader](https://godoc.org/github.com/arturwwl/go-wkhtmltopdf#PageReader "GoDoc") object as input to AddPage. This is best constructed with  [NewPageReader](https://godoc.org/github.com/arturwwl/go-wkhtmltopdf#NewPageReader "GoDoc") and will accept any io.Reader so this can be used with files from disk (os.File) or memory (bytes.Buffer) etc.  
 A simple example snippet:
 ```go
 html := "<html>Hi</html>"
@@ -151,7 +151,7 @@ if err != nil {
 }    
 ```
 
-For an example of running this in AWS Lambda see https://github.com/SebastiaanKlippert/go-wkhtmltopdf-lambda
+For an example of running this in AWS Lambda see https://github.com/arturwwl/go-wkhtmltopdf-lambda
 
 # Speed 
 The speed if pretty much determined by wkhtmltopdf itself, or if you use external source URLs, the time it takes to get and render the source HTML.
