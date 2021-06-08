@@ -141,12 +141,12 @@ type cover struct {
 type toc struct {
 	Include bool
 	allTocOptions
-	headerAndFooterOptions
 }
 
 type allTocOptions struct {
 	pageOptions
 	tocOptions
+	headerAndFooterOptions
 }
 
 // PDFGenerator is the main wkhtmltopdf struct, always use NewPDFGenerator to obtain a new PDFGenerator struct
@@ -361,8 +361,8 @@ func NewPDFPreparer() *PDFGenerator {
 		},
 		TOC: toc{
 			allTocOptions: allTocOptions{
-				tocOptions:  newTocOptions(),
-				pageOptions: newPageOptions(),
+				tocOptions:             newTocOptions(),
+				pageOptions:            newPageOptions(),
 				headerAndFooterOptions: newHeaderAndFooterOptions(),
 			},
 		},
